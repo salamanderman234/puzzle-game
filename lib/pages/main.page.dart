@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:puzzle/components/button.dart';
 import 'package:puzzle/pages/level_list.page.dart';
 
@@ -64,7 +62,9 @@ class MainPage extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const LevelListPage()));
+                                builder: (context) => const LevelListPage(
+                                      difficulty: "Easy",
+                                    )));
                       },
                       color: Colors.red,
                       text: const Text(

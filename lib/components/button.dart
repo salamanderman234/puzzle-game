@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class DefaultButton extends StatelessWidget {
   final Color color;
@@ -47,6 +45,7 @@ class FitButton extends StatelessWidget {
   final Color color;
   final double paddingx, paddingy;
   final double marginx, marginy;
+  final Function() onPressed;
   const FitButton(
       {super.key,
       required this.text,
@@ -54,13 +53,24 @@ class FitButton extends StatelessWidget {
       this.paddingx = 0.0,
       this.paddingy = 0.0,
       this.marginx = 0.0,
-      this.marginy = 0.0});
+      this.marginy = 0.0,
+      required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
           left: marginx, right: marginx, top: marginy, bottom: marginy),
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ButtonStyle(
+            shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0))),
+            backgroundColor: MaterialStateProperty.all<Color>(color),
+            padding: MaterialStateProperty.all<EdgeInsets>(
+                EdgeInsets.fromLTRB(paddingx, paddingy, paddingx, paddingy))),
+        child: text,
+      ),
     );
   }
 }

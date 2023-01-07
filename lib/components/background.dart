@@ -8,7 +8,7 @@ class DefaultBackground extends StatelessWidget {
   // constructor
   const DefaultBackground(
       {super.key,
-      this.padding = const EdgeInsets.all(40),
+      this.padding = const EdgeInsets.all(10),
       this.fromColor = const Color.fromARGB(215, 116, 84, 249),
       this.toColor = const Color.fromARGB(215, 115, 17, 176),
       required this.child});
